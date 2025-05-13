@@ -60,8 +60,8 @@ public class ExDemo extends Frame {
         ed.setSize(new Dimension(200, 200));
 
         ed.setTitle("Demo AWT");
-        ed.setBackground(Color.darkGray);
-        ed.setForeground(Color.WHITE);
+        ed.setBackground(Color.darkGray); // утсановка цвета фона
+        ed.setForeground(Color.WHITE); // установка цвета текста
         ed.setVisible(true);
     }
 }
