@@ -35,7 +35,7 @@ public class ExDemo extends Frame {
             public void windowClosing(WindowEvent e) {
                 setVisible(false);
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -52,7 +52,10 @@ public class ExDemo extends Frame {
      */
     @Override
     public void paint(Graphics g) {
-        g.drawString(msg, 20, 80);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawString(msg, 20, 80);
+        g2d.draw3DRect(10, 80, 50, 50, true);
+
     }
 
     public static void main(String[] args) {
