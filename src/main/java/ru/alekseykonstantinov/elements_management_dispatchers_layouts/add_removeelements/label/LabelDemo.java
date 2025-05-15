@@ -1,4 +1,4 @@
-package ru.alekseykonstantinov.elements_management_dispatchers_layouts.add_removeelements;
+package ru.alekseykonstantinov.elements_management_dispatchers_layouts.add_removeelements.label;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
