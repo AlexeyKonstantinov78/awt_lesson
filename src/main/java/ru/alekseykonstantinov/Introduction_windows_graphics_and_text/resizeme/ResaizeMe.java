@@ -1,13 +1,16 @@
-package ru.alekseykonstantinov.excolor;
+package ru.alekseykonstantinov.Introduction_windows_graphics_and_text.resizeme;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Xor extends Frame {
-    int chsX = 100, chsY = 100;
+public class ResaizeMe extends Frame {
+    final int inc = 25;
+    int max = 500;
+    int min = 200;
+    Dimension d;
 
     /**
      * Constructs a new instance of {@code Frame} that is
@@ -20,21 +23,18 @@ public class Xor extends Frame {
      * @see Component#setSize
      * @see Component#setVisible(boolean)
      */
-    public Xor() {
-        addMouseMotionListener(new MouseMotionAdapter() {
+    public ResaizeMe() {
+        addMouseListener(new MouseAdapter() {
             /**
              * {@inheritDoc}
              *
              * @param e
-             * @since 1.6
              */
             @Override
-            public void mouseMoved(MouseEvent e) {
-                int x = e.getX();
-                int y = e.getY();
-                chsX = x - 10;
-                chsY = y - 10;
-                repaint();
+            public void mouseReleased(MouseEvent e) {
+                int w = (d.width + inc) > max ? min : (d.width + inc);
+                int h = (d.height + inc) > max ? min : (d.height + inc);
+                setSize(new Dimension(w, h));
             }
         });
 
@@ -52,6 +52,7 @@ public class Xor extends Frame {
         });
     }
 
+
     /**
      * {@inheritDoc}
      *
@@ -60,29 +61,17 @@ public class Xor extends Frame {
      */
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.green);
-        g.fillRect(20, 40, 60, 70);
-        g.setColor(Color.blue);
-        g.fillRect(110, 40, 60, 70);
-        g.setColor(Color.black);
-        g.fillRect(200, 40, 60, 70);
-        g.setColor(Color.red);
-        g.fillRect(60, 120, 160, 110);
-// Объединить перекрестие с содержимым посредством
-// операции исключающего ИЛИ .
-        g.setXORMode(Color.black);
-        g.drawLine(chsX - 10, chsY, chsX + 10, chsY);
-        g.drawLine(chsX, chsY - 10, chsX, chsY + 10);
-        g.setPaintMode();
+        Insets i = getInsets();
+        d = getSize();
+        g.drawLine(i.left, i.top, d.width - i.right, d.height - i.bottom);
+        g.drawLine(i.left, d.height - i.bottom, d.width - i.right, i.top);
     }
 
     public static void main(String[] args) {
-        Xor appwin = new Xor();
-        appwin.setSize(new Dimension(300, 260));
-        appwin.setTitle("XOR Demo");
+        ResaizeMe appwin = new ResaizeMe();
+        appwin.setSize(new Dimension(200, 200));
+        appwin.setTitle("ResaizeMe");
         appwin.setVisible(true);
-        ;
     }
+
 }
-
-

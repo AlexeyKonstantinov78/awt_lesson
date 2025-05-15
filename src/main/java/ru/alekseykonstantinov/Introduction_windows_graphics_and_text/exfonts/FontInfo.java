@@ -1,4 +1,4 @@
-package ru.alekseykonstantinov.exfonts;
+package ru.alekseykonstantinov.Introduction_windows_graphics_and_text.exfonts;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

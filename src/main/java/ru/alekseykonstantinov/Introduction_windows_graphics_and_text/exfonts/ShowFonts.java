@@ -1,10 +1,13 @@
-package ru.alekseykonstantinov.excolor;
+package ru.alekseykonstantinov.Introduction_windows_graphics_and_text.exfonts;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ColorDemo extends Frame {
+public class ShowFonts extends Frame {
+    String msg = "First five fonts : ";
+    GraphicsEnvironment ge;
+
     /**
      * Constructs a new instance of {@code Frame} that is
      * initially invisible.  The title of the {@code Frame}
@@ -16,7 +19,7 @@ public class ColorDemo extends Frame {
      * @see Component#setSize
      * @see Component#setVisible(boolean)
      */
-    public ColorDemo() {
+    public ShowFonts() {
         addWindowListener(new WindowAdapter() {
             /**
              * Invoked when a window is in the process of being closed.
@@ -29,6 +32,12 @@ public class ColorDemo extends Frame {
                 System.exit(0);
             }
         });
+
+        ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String[] fontList = ge.getAvailableFontFamilyNames();
+        // Создать строку с именами первых nяти шрифтов .
+        for (int i = 0; (i < 5) && (i < fontList.length); i++)
+            msg += fontList[i] + " ";
     }
 
     /**
@@ -39,33 +48,13 @@ public class ColorDemo extends Frame {
      */
     @Override
     public void paint(Graphics g) {
-        Color c1 = new Color(255, 100, 100);
-        Color c2 = new Color(100, 255, 100);
-        Color cЗ = new Color(100, 100, 255);
-        g.setColor(c1);
-        g.drawLine(20, 40, 100, 100);
-        g.drawLine(20, 100, 100, 20);
-        g.setColor(c2);
-        g.drawLine(40, 45, 250, 180);
-        g.drawLine(75, 90, 400, 400);
-        g.setColor(cЗ);
-        g.drawLine(20, 150, 400, 40);
-        g.drawLine(25, 290, 80, 19);
-        g.setColor(Color.red);
-        g.drawOval(20, 40, 50, 50);
-        g.fillOval(70, 90, 140, 100);
-        g.setColor(Color.blue);
-        g.drawOval(90, 40, 90, 60);
-        g.drawRect(40, 40, 55, 50);
-        g.setColor(Color.cyan);
-        g.fillRect(100, 40, 60, 70);
-        g.drawRoundRect(190, 40, 60, 60, 15, 15);
+        g.drawString(msg, 10, 60);
     }
 
     public static void main(String[] args) {
-        ColorDemo colorDemo = new ColorDemo();
-        colorDemo.setSize(new Dimension(340, 260));
-        colorDemo.setTitle("ColorDemo");
-        colorDemo.setVisible(true);
+        ShowFonts showFonts = new ShowFonts();
+        showFonts.setSize(new Dimension(500, 100));
+        showFonts.setTitle("ShowFonts");
+        showFonts.setVisible(true);
     }
 }

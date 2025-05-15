@@ -1,4 +1,4 @@
-package ru.alekseykonstantinov.introduction;
+package ru.alekseykonstantinov.Introduction_windows_graphics_and_text.introduction;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

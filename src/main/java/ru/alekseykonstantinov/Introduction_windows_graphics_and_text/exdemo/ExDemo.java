@@ -1,4 +1,4 @@
-package ru.alekseykonstantinov.exdemo;
+package ru.alekseykonstantinov.Introduction_windows_graphics_and_text.exdemo;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
