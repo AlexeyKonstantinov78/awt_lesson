@@ -19,6 +19,8 @@ public class LabelDemo extends Frame {
      */
     public LabelDemo() throws HeadlessException {
         // Использовать поточную компоновку.
+        // setLayout -> Container
+        // new FlowLayout()-> диспетчер компоновки с стандартным поведением в построчно, слева направо, сверху вниз и по центру
         setLayout(new FlowLayout());
         Label one = new Label("One");
         Label two = new Label("Two");
