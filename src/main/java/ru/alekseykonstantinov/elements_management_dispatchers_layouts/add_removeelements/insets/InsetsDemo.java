@@ -63,7 +63,7 @@ public class InsetsDemo extends Frame {
      */
     @Override
     public Insets getInsets() {
-        return new Insets(40, 20, 10, 20); // вставка 
+        return new Insets(40, 20, 10, 20); // вставка
     }
 
     public static void main(String[] args) {
