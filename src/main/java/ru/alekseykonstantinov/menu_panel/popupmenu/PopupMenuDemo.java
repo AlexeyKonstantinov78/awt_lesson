@@ -56,7 +56,7 @@ public class PopupMenuDemo extends Frame implements ActionListener, ItemListener
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     // правая кнопка
-                    popup.show(getComponentAt(e.getX(), e.getY()), e.getX(), e.getY());
+                    popup.show(e.getComponent(), e.getX(), e.getY());
                 }
             }
         });
